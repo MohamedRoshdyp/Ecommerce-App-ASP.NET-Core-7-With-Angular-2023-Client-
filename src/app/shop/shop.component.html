@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <section class="col-3">
+            <h6 class="text-danger my-3" style="font-weight: bold;">Sorting</h6>
+
+            <select class="form-select" aria-label="Default select example" (change)="onSortSelect($event)">
+                <option *ngFor="let item of sortOptions" [value]="item.value">{{item.name}}</option>
+
+            </select>
+
+            <h6 class="text-danger my-3" style="font-weight: bold;">Category</h6>
+            <ul class="list-group">
+                <li class="list-group-item" aria-current="true" *ngFor="let item of category"
+                    [class.active]="item.id === shopParams.categoryId" [value]="item.id"
+                    (click)="OnCategorySelect(item.id)">{{item.name}}</li>
+
+            </ul>
+        </section>
+        <section class="col-9">
+            <div class="d-flex justify-content-between align-items-center pb-4 pt-4">
+
+
+                <!-- Paing-Header -->
+                <app-paging-header
+                [totalCount]="totalCount"
+                [pageSize] ="shopParams.pageSize"
+                [pageNumber] = "shopParams.pageNumber"
+
+                ></app-paging-header>
+                <div class="col-9">
+
+                    <div class="input-group">
+                        <input (keyup.enter)="onSearch()" class="form-control mr-2" type="text" #search placeholder="Search Here...">
+                        <button class="btn btn-outline-success" (click)="onSearch()">Search</button>
+                        <button class="btn btn-outline-warning" (click)="onRest()">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col" *ngFor="let item of products">
+                    <app-shop-item [product]="item"> </app-shop-item>
+                </div>
+
+            </div>
+            <div class="d-flex justify-content-center mt-3" *ngIf="totalCount>0">
+            
+                <!-- pager -->
+                <app-pager
+                [pageSize]="shopParams.pageSize"
+                [totalCount]="this.totalCount"
+                (pageChanged)="onPageChaged($event)"
+                ></app-pager>
+            </div>
+        </section>
+    </div>
+</div>
