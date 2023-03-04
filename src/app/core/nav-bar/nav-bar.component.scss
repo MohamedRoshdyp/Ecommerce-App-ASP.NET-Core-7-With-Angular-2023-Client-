@@ -11,3 +11,12 @@
     top: 13px;
     right: 293px;
 }
+
+.nav-link{
+    color:#0d6efd;
+
+    &.active{
+        color: red;
+        font-weight: bold;
+    }
+}
