@@ -20,8 +20,8 @@ export class ShopService {
     if (shopParams.categoryId !== 0) {
       params = params.append('categoryId', shopParams.categoryId.toString());
     }
-    if(shopParams.search){
-      params = params.append('search',shopParams.search);
+    if (shopParams.search) {
+      params = params.append('search', shopParams.search);
     }
     params = params.append('sort', shopParams.sort);
 
@@ -37,7 +37,7 @@ export class ShopService {
   getCategory() {
     return this.http.get<ICategory[]>(this.baseURl + 'Categories/get-all-categories')
   }
-  getProdut(id:number){
-    return this.http.get<IProducts>(this.baseURl+'Products/get-product-by-id/'+id);
+  getProdut(id: number) {
+    return this.http.get<IProducts>(this.baseURl + 'Products/get-product-by-id/' + id);
   }
 }
