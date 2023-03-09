@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <section class="col-3">
+        <section class="col-3" *ngIf="category">
             <h6 class="text-danger my-3" style="font-weight: bold;">Sorting</h6>
 
             <select class="form-select" aria-label="Default select example" (change)="onSortSelect($event)">
@@ -27,7 +27,7 @@
                 [pageNumber] = "shopParams.pageNumber"
 
                 ></app-paging-header>
-                <div class="col-9">
+                <div class="col-9" *ngIf="products">
 
                     <div class="input-group">
                         <input (keyup)="onSearch()" class="form-control mr-2" type="text" #search placeholder="Search Here...">
