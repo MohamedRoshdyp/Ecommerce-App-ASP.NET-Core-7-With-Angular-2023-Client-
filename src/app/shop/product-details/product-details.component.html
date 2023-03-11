@@ -9,10 +9,10 @@
 
         <div class="d-flex justify-content-start align-items-center">
             <!-- + | - | AddBtn  -->
-            <i class="fa fa-minus-square text-danger mx-2" style="font-weight: bold; cursor: pointer; font-size: 1em;"></i>
-            <span style="font-weight: bold;">5</span>
-            <i class="fa fa-plus-square text-danger mx-2" style="font-weight: bold; cursor: pointer; font-size: 2em;"></i>
-            <button class="btn btn-outline-danger btn-lg ml-5">Add To Cart</button>
+            <i (click)="decrementQuantity()" class="fa fa-minus-square text-danger mx-2" style="font-weight: bold; cursor: pointer; font-size: 1em;"></i>
+            <span style="font-weight: bold;">{{quantity}}</span>
+            <i (click)="incrementQuantity()" class="fa fa-plus-square text-danger mx-2" style="font-weight: bold; cursor: pointer; font-size: 2em;"></i>
+            <button (click)="addItemToBasket()" class="btn btn-outline-danger btn-lg ml-5">Add To Cart</button>
         </div>
     </div>
     <div class="row">
